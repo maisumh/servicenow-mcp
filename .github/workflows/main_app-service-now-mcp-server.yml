@@ -69,6 +69,9 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_40CF9B0A715541E287CA31ACDB04DBC0 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_E47F603F115C44BA8BF7AB871D43232C }}
 
+      - name: Wait for App Service to finish restarting  
+        run: sleep 30  
+
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
